@@ -19,6 +19,7 @@ The **Pomodoro Timer** is a web-based application that allows users to set a tim
 - **CSS**: Styles the timer, ensuring a clean and modern design.
 - **JavaScript**: Implements the core functionality of the timer, including countdown logic and user interactions.
 
+
 ## Installation
 
 To get started with the project, follow these steps:
