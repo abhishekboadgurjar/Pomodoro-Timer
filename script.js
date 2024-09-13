@@ -5,6 +5,8 @@ const timerEl = document.getElementById("timer");
 
 let interval;
 let timeLeft = 1500;
+// Adding a global value to see if our time is active or not 
+let isTimerActive = false;
 
 function updateTimer() {
   let minutes = Math.floor(timeLeft / 60);
@@ -17,23 +19,28 @@ function updateTimer() {
 }
 
 function startTimer() {
-  interval = setInterval(() => {
-    timeLeft--;
-    updateTimer();
-    if (timeLeft === 0) {
-      clearInterval(interval);
-      alert("Time's up!");
-      timeLeft = 1500;
+  if (!isTimerActive) {
+    isTimerActive = true;
+    interval = setInterval(() => {
+      timeLeft--;
       updateTimer();
-    }
-  }, 1000);
+      if (timeLeft === 0) {
+        clearInterval(interval);
+        alert("Time's up!");
+        timeLeft = 1500;
+        updateTimer();
+      }
+    }, 1000);
+  }
 }
 
 function stopTimer() {
+  isTimerActive = false;
   clearInterval(interval);
 }
 
 function resetTimer() {
+  isTimerActive = false;
   clearInterval(interval);
   timeLeft = 1500;
   updateTimer();
